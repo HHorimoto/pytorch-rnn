@@ -9,11 +9,11 @@ class Net(nn.Module):
         self.rnn_name = rnn_name
 
         if self.rnn_name == "RNN":
-            self.rnn = nn.RNNCell(34, n_hidden)
+            self.rnn = nn.RNNCell(34, n_hidden, batch_first=True)
         elif rnn_name == "LSTM":
-          self.rnn = nn.LSTMCell(34, n_hidden)
+          self.rnn = nn.LSTMCell(34, n_hidden, batch_first=True)
         elif rnn_name == "GRU":
-          self.rnn = nn.GRUCell(34, n_hidden)
+          self.rnn = nn.GRUCell(34, n_hidden, batch_first=True)
         
         self.linear = nn.Linear(n_hidden, 1)
 
