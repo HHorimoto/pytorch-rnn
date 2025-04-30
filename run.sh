@@ -9,7 +9,7 @@ python ./main.py 2>&1 | tee ./log/$now/log.txt
 
 # move files
 if [ -e "loss.png" ]; then
-    mv loss.png ./log/$now/\
+    mv loss.png ./log/$now/
 fi
 
 deactivate
