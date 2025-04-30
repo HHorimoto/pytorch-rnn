@@ -33,13 +33,13 @@ def main():
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-    train_loader, test_loader = create_dataset(ROOT, BATCH_SIZE)
+    datasets, dataloaders = create_dataset(ROOT, BATCH_SIZE)
 
     net = Net(n_hidden=128, rnn_name=RNN_NAME).to(device)
     criterion = nn.MSELoss()
     optimizer = optim.Adam(net.parameters(), lr=LR)
 
-    coach = Coach(net, train_loader, test_loader, criterion, optimizer, device, NUM_EPOCH, n_hidden=128, time_window=10)
+    coach = Coach(net, dataloaders['train'], dataloaders['test'], criterion, optimizer, device, NUM_EPOCH, n_hidden=128, time_window=10)
     coach.train_test()
 
     plot({"train": coach.train_loss, "test": coach.test_loss}, "loss")
