@@ -17,7 +17,7 @@ from src.utils.seeds import fix_seed
 from src.data.dataset import create_dataset
 from src.models.models import Net
 from src.models.coachs import Coach
-from src.visualization.visualize import plot
+from src.visualization.visualize import plot, plot_preds
 
 def main():
 
@@ -43,6 +43,8 @@ def main():
     coach.train_test()
 
     plot({"train": coach.train_loss, "test": coach.test_loss}, "loss")
+
+    plot_preds(coach.net, dataloaders['test'], datasets['test'], coach.n_hidden, device, RNN_NAME)
     
 if __name__ == "__main__":
     fix_seed()

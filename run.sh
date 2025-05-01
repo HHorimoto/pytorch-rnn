@@ -12,4 +12,8 @@ if [ -e "loss.png" ]; then
     mv loss.png ./log/$now/
 fi
 
+if [ -e "preds.png" ]; then
+    mv preds.png ./log/$now/
+fi
+
 deactivate
