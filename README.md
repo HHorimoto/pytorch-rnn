@@ -6,7 +6,7 @@
 $ git clone git@github.com:HHorimoto/pytorch-rnn.git
 $ cd pytorch-rnn
 $ wget https://drive.google.com/uc?id=1oMM1Xu2-hIe4Of2mfznvBNGCQIe54O1f -O ./data/BEMS_data.zip
-$ unzip -q ./data/BEMS_data.zip -d ./data/
+$ unzip -q -o ./data/BEMS_data.zip -d ./data/
 $ ~/python3.10/bin/python3 -m venv .venv
 $ . .venv/bin/activate
 $ pip install -r requirements.txt
